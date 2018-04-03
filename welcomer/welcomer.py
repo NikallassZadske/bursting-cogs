@@ -244,17 +244,6 @@ Message Examples:
         color = int(color, 16)
         for a in inv_list:
             try:
-                if int(a.uses) > int(json_list[a.url]):
-                    if db[server.id]["Embed"]:
-                        data = discord.Embed(title="Member Joined!",
-                                             description=message.format(member, a, server),
-                                             colour=discord.Colour(value=color))
-                        data.set_thumbnail(url=member.avatar_url)
-                        await self.bot.send_message(server.get_channel(channel), embed=data)
-                    else:
-                        await self.bot.send_message(server.get_channel(channel), message.format(member, a, server))
-                    break
-            except KeyError:
                 if db[server.id]["Embed"]:
                     data = discord.Embed(title="ID: {}".format(member.id),
                                              description=message.format(member, a, server),
